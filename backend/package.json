@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend pra o quiz, conectado ao Badrock e Tiktok.",
+  "license": "ISC",
+  "author": "Walker Sousa",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@aws-sdk/client-bedrock-runtime": "^3.731.1",
+    "@aws-sdk/client-s3": "^3.732.0",
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "axios": "^1.7.9",
+    "child_process": "^1.0.2",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "fluent-ffmpeg": "^2.1.3",
+    "form-data": "^4.0.1",
+    "fs": "^0.0.1-security",
+    "node-cron": "^3.0.3",
+    "puppeteer": "^19.0.0",
+    "puppeteer-screen-recorder": "^3.0.6"
+  }
+}

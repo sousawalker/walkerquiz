@@ -1,0 +1,301 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+@keyframes highlight {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); box-shadow: 0 0 20px #ffd700; }
+  100% { transform: scale(1); }
+}
+
+@keyframes countdown {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: 113px; }
+}
+
+@keyframes countdownNumber {
+  0%   { content: "10"; }
+  10%  { content: "9"; }
+  20%  { content: "8"; }
+  30%  { content: "7"; }
+  40%  { content: "6"; }
+  50%  { content: "5"; }
+  60%  { content: "4"; }
+  70%  { content: "3"; }
+  80%  { content: "2"; }
+  90%  { content: "1"; }
+  100% { content: "0"; }
+}
+
+@keyframes rotatePop {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(5deg) scale(1.05);
+  }
+}
+
+@keyframes fadeInUpChannel {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes ringTheBell {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  20% {
+    transform: translateX(-50%) rotate(-15deg);
+  }
+  40% {
+    transform: translateX(-50%) rotate(15deg);
+  }
+  60% {
+    transform: translateX(-50%) rotate(-10deg);
+  }
+  80% {
+    transform: translateX(-50%) rotate(10deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+}
+
+@keyframes textPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.quiz-container {
+  @apply relative overflow-hidden flex items-start py-10;
+  width: 100%;
+  height: 1920px;
+  margin: 0 auto;
+  background: radial-gradient(circle at center, #ffeb3b 0%, #ff5722 100%);
+}
+
+.quiz-content {
+  @apply mx-auto;
+  width: 90%; 
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.quiz-burst {
+  position: relative;
+  width: 90%;
+  margin: 2rem auto;
+  opacity: 0;
+  z-index: 1;
+  animation: 
+    fadeIn 1s forwards 0.5s,
+    rotatePop 2.5s infinite ease-in-out 1.5s;
+}
+
+.quiz-title {
+  fill: white;
+  font-size: 120px;
+  font-weight: bold;
+  font-family: 'Impact', sans-serif;
+  stroke: #000;
+  stroke-width: 5px;
+  margin-bottom: 30px;
+}
+
+.question-container {
+  @apply bg-white rounded-2xl p-8 shadow-xl;
+  border: 4px solid #000;
+  opacity: 0;
+  animation: fadeIn 1s forwards 1s;
+  padding: 1.5rem;
+}
+
+.question-text {
+  @apply text-4xl font-bold text-center mb-8;
+  font-family: 'Comic Sans MS', cursive;
+  color: #000;
+  margin: 0 auto 20px auto;
+}
+
+.options-grid {
+  @apply grid grid-cols-2 gap-4;
+}
+
+.option-button {
+  @apply bg-yellow-300 text-black font-bold py-6 px-8 rounded-lg border-4 border-black shadow-md;
+  font-family: 'Comic Sans MS', cursive;
+  opacity: 0;
+  font-size: 1.65rem;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s forwards;
+}
+
+.delay-1 { animation-delay: 4.5s; }
+.delay-2 { animation-delay: 4.7s; }
+.delay-3 { animation-delay: 4.9s; }
+.delay-4 { animation-delay: 5.1s; }
+
+.correct {
+  animation: fadeInUp 0.5s forwards 0.5s, highlight 1s forwards 0.5s;
+}
+
+.correct-highlight {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #ffd700;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #FF6324;
+  border-color: #FF6324;
+}
+
+.countdown-container {
+  @apply mt-8 flex justify-center items-center relative;
+  width: 60px;
+  height: 60px;
+  margin: 25px auto;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards 5.3s;
+}
+
+.countdown-container.hidden {
+  opacity: 0 !important;
+}
+
+.countdown-number {
+  @apply absolute inset-0 flex items-center justify-center font-bold text-2xl;
+  animation: countdownNumber 5s steps(10) forwards 5.3s;
+  counter-reset: countdown 10;
+}
+
+.countdown-number::after {
+  content: counter(countdown);
+  animation: countdownNumber 10s steps(10) forwards 5.3s;
+}
+
+.countdown-svg {
+  @apply w-full h-full -rotate-90;
+}
+
+.countdown-svg circle {
+  @apply stroke-current fill-none;
+  stroke-width: 4;
+  stroke-dasharray: 113px;
+  stroke-linecap: round;
+  transform-origin: center;
+  animation: countdown 10s linear forwards 5.3s;
+}
+
+.quiz-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 2px 2px, rgba(0,0,0,0.1) 1px, transparent 0),
+    linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255,255,255,0.1) 25%, transparent 25%);
+  background-size: 20px 20px, 60px 60px, 60px 60px;
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+.channel-stamp {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  animation:
+    fadeInUpChannel 1s ease forwards 2.1s;
+}
+
+.channel-avatar-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.channel-avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 0 4px rgba(0,0,0,0.3);
+  object-fit: cover;
+}
+
+.bell-icon {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  background-color: #fff;
+  padding: 2px 6px;
+  border-radius: 9999px;
+  box-shadow: 0 0 4px rgba(0,0,0,0.3);
+  animation: ringTheBell 2.5s ease-in-out infinite 6s;
+}
+
+.channel-name {
+  margin-top: 1.5rem;
+  font-family: 'Impact', sans-serif;
+  font-size: 5rem;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow:
+    -3px 3px 0 #000,
+     3px 3px 0 #000,
+     3px -3px 0 #000,
+    -3px -3px 0 #000;
+  animation: textPulse 3s infinite 5s;
+}
+
+.channel-name span {
+  color: rgb(0, 162, 255);
+}
+  
