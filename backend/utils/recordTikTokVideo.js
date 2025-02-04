@@ -50,6 +50,8 @@ async function recordTikTokVideo(url, outputPath) {
   const audioPath = path.join(__dirname, `../audios/${getNextNumber()}.mp3`);
   const videoFinal = path.join(__dirname, '../videos/quizVideo.mp4');
 
+  console.log('Adicionando áudio ao vídeo...');
+
   await addAudioToVideo(videoSemAudio, audioPath, videoFinal);
 }
 
@@ -85,8 +87,6 @@ function getNextNumber() {
 }
 
 function addAudioToVideo(inputVideo, inputAudio, outputVideo) {
-  console.log('Adicionando áudio ao vídeo...');
-
   return new Promise((resolve, reject) => {
     ffmpeg()
       .setFfmpegPath(ffmpegPath)
