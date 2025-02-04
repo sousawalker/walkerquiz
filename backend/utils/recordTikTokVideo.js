@@ -34,11 +34,15 @@ async function recordTikTokVideo(url, outputPath) {
     videoCodec: 'libx264'
   });
 
+  console.log('Iniciando gravação...');
+
   await recorder.start(outputPath);
 
   await page.waitForTimeout(18000);
 
   await recorder.stop();
+
+  console.log('Gravação concluída!');
 
   await browser.close();
 
