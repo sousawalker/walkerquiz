@@ -47,13 +47,13 @@ async function recordTikTokVideo(url, outputPath) {
   await browser.close();
 
   const videoSemAudio = path.join(__dirname, '../videos/quizVideoNoAudio.mp4');
-  const audioPath = path.join(__dirname, `../audios/${getRandomNumber()}.mp3`);
+  const audioPath = path.join(__dirname, `../audios/${getNextNumber()}.mp3`);
   const videoFinal = path.join(__dirname, '../videos/quizVideo.mp4');
 
   await addAudioToVideo(videoSemAudio, audioPath, videoFinal);
 }
 
-function getRandomNumber() {
+function getNextNumber() {
   let currentNumber = 1;
 
   // Lê o número atual do arquivo
