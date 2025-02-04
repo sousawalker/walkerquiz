@@ -43,12 +43,6 @@ async function recordTikTokVideo(url, outputPath) {
     defaultViewport: { width: 1080, height: 1920 },
     args: [
       "--no-sandbox",
-      "--disable-dev-shm-usage",
-      "--enable-features=NetworkService",
-      "--ignore-certificate-errors",
-      "--enable-accelerated-2d-canvas",
-      "--disable-web-security",
-      "--allow-file-access",
       "--window-size=1080,1920"
     ]
   });
