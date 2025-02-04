@@ -40,7 +40,7 @@ async function recordTikTokVideo(url, outputPath) {
   const browser = await puppeteer.launch({
     headless: true,
     executablePath: chromePath,
-    defaultViewport: { width: 1920, height: 1080 },
+    defaultViewport: { width: 1080, height: 1920 },
     args: [
       "--no-sandbox",
       "--disable-dev-shm-usage",
@@ -49,7 +49,7 @@ async function recordTikTokVideo(url, outputPath) {
       "--enable-accelerated-2d-canvas",
       "--disable-web-security",
       "--allow-file-access",
-      "--window-size=1920,1080"
+      "--window-size=1080,1920"
     ]
   });
 
