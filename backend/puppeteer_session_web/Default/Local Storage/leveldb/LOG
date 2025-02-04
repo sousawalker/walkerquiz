@@ -1,2 +1,3 @@
-2025/02/04-17:30:43.641 660c Creating DB D:\www\quiz\backend\puppeteer_session_web\Default\Local Storage\leveldb since it was missing.
-2025/02/04-17:30:43.652 660c Reusing MANIFEST D:\www\quiz\backend\puppeteer_session_web\Default\Local Storage\leveldb/MANIFEST-000001
+2025/02/04-17:43:02.861 4e38 Reusing MANIFEST D:\www\quiz\backend\puppeteer_session_web\Default\Local Storage\leveldb/MANIFEST-000001
+2025/02/04-17:43:02.866 4e38 Recovering log #3
+2025/02/04-17:43:02.867 4e38 Reusing old log D:\www\quiz\backend\puppeteer_session_web\Default\Local Storage\leveldb/000003.log 

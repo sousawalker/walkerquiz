@@ -1,5 +1,1 @@
-2025/02/04-17:30:43.596 762c Log #3: 36 ops saved to Table #4 OK
-2025/02/04-17:30:43.599 762c Archiving D:\www\quiz\backend\puppeteer_session_web\Default\Site Characteristics Database/000003.log: OK
-2025/02/04-17:30:43.599 762c Table #4: 36 entries OK
-2025/02/04-17:30:43.600 762c Archiving D:\www\quiz\backend\puppeteer_session_web\Default\Site Characteristics Database/MANIFEST-000001: OK
-2025/02/04-17:30:43.604 762c **** Repaired leveldb D:\www\quiz\backend\puppeteer_session_web\Default\Site Characteristics Database; recovered 1 files; 557 bytes. Some data may have been lost. ****
+2025/02/04-17:30:43.606 762c Reusing MANIFEST D:\www\quiz\backend\puppeteer_session_web\Default\Site Characteristics Database/MANIFEST-000001

@@ -9,8 +9,8 @@ interface Option {
 export const QuizQuestion = () => {
   const [highlight, setHighlight] = useState<boolean>(false);
 
-  const options: Option[] = [{"text":"Girafa","correct":false},{"text":"Gato","correct":true},{"text":"Tartaruga","correct":false},{"text":"Camaleão","correct":false}];
-  const question: string = "Qual é o único animal que consegue sobreviver a uma queda de qualquer altura sem se machucar?";
+  const options: Option[] = [{"text":"Águia-real","correct":false},{"text":"Borboleta","correct":false},{"text":"Morcego","correct":false},{"text":"Beija-flor","correct":true}];
+  const question: string = "Qual é o único animal que consegue voar para trás?";
 
   useEffect(() => {
     const timeout = setTimeout(() => {
