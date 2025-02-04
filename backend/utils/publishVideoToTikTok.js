@@ -63,7 +63,7 @@ async function publishVideoToTikTok(videoPath, capaPath, description, hashtags, 
     // Navega para página de upload
     await page.goto('https://www.tiktok.com/tiktokstudio/upload');
 
-    await page.waitForTimeout(120000);
+    await page.waitForTimeout(180000);
 
     // Cria uma screenshot da página
     setTimeout(async () => {

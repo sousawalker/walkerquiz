@@ -85,6 +85,8 @@ function getRandomNumber() {
 }
 
 function addAudioToVideo(inputVideo, inputAudio, outputVideo) {
+  console.log('Adicionando áudio ao vídeo...');
+
   return new Promise((resolve, reject) => {
     ffmpeg()
       .setFfmpegPath(ffmpegPath)
