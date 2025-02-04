@@ -8,7 +8,13 @@ const fs = require('fs');
 const AUDIO_COUNTER_FILE = path.join(__dirname, '../audioCounter.txt');
 
 async function recordTikTokVideo(url, outputPath) {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox'
+    ]
+  });
 
   const page = await browser.newPage();
 
