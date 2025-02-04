@@ -134,7 +134,7 @@ const updateQuizQuestionAndPostTikTok = async () => {
 
       console.log("Descrição e tags gerados com sucesso!");
 
-      await recordTikTokVideo('http://localhost:5173', './videos/quizVideoNoAudio.mp4');
+      await recordTikTokVideo('http://54.174.171.186:5173/', './videos/quizVideoNoAudio.mp4');
 
       try {
         const result = await publishVideoToTikTok(path.resolve(__dirname, 'videos', 'quizVideo.mp4'), path.resolve(__dirname, 'videos', 'quizVideo_thumb.jpg'), description, tags, false);

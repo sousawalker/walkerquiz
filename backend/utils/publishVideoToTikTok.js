@@ -65,6 +65,11 @@ async function publishVideoToTikTok(videoPath, capaPath, description, hashtags, 
     await page.waitForSelector('input[type="file"]');
     await page.waitForTimeout(3000);
 
+    // Cria uma screenshot da página
+    setTimeout(async () => {
+      await page.screenshot({ path: './screenshots/screenshot.png' });
+    }, 2000);
+
     // Upload do vídeo
     const inputFile = await page.$('input[type="file"]');
     await inputFile.uploadFile(videoPath);
