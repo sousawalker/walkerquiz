@@ -62,13 +62,16 @@ async function publishVideoToTikTok(videoPath, capaPath, description, hashtags, 
 
     // Navega para página de upload
     await page.goto('https://www.tiktok.com/tiktokstudio/upload');
-    await page.waitForSelector('input[type="file"]');
-    await page.waitForTimeout(3000);
 
     // Cria uma screenshot da página
     setTimeout(async () => {
-      await page.screenshot({ path: './screenshots/screenshot.png' });
-    }, 2000);
+      await page.screenshot({ path: path.join(__dirname, '../screenshots/screenshot.png') });
+    }, 5000);
+
+    // Aguarda o botão de upload aparecer
+    await page.waitForSelector('input[type="file"]');
+
+    await page.waitForTimeout(3000);
 
     // Upload do vídeo
     const inputFile = await page.$('input[type="file"]');
