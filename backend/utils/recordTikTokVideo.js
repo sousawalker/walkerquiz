@@ -4,50 +4,15 @@ const path = require('path');
 const ffmpeg = require('fluent-ffmpeg');
 const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
 const fs = require('fs');
-const { execSync } = require('child_process');
-
-function findChrome() {
-  try {
-    if (process.platform === 'win32') {
-      const paths = [
-        'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-        'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
-        process.env.LOCALAPPDATA + '\\Google\\Chrome\\Application\\chrome.exe'
-      ];
-
-      for (const path of paths) {
-        if (fs.existsSync(path)) return path;
-      }
-    } else if (process.platform === 'darwin') {
-      return '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
-    } else {
-      const chromePath = execSync('which google-chrome').toString().trim();
-
-      if (chromePath) return chromePath;
-    }
-  } catch (error) {
-    console.error('Erro ao procurar Chrome:', error);
-  }
-
-  throw new Error('Google Chrome não encontrado. Por favor, instale o Chrome.');
-}
 
 const AUDIO_COUNTER_FILE = path.join(__dirname, '../audioCounter.txt');
 
-const chromePath = findChrome();
-
 async function recordTikTokVideo(url, outputPath) {
-  const browser = await puppeteer.launch({
-    headless: true,
-    executablePath: chromePath,
-    defaultViewport: { width: 1080, height: 1920 },
-    args: [
-      "--no-sandbox",
-      "--window-size=1080,1920"
-    ]
-  });
+  const browser = await puppeteer.launch();
 
   const page = await browser.newPage();
+
+  await page.setViewport({ width: 1080, height: 1920 });
 
   await page.goto(url);
 
@@ -69,9 +34,9 @@ async function recordTikTokVideo(url, outputPath) {
 
   await page.waitForTimeout(18000);
 
-  await recorder.stop();
+  console.log('Gravação concluída.');
 
-  console.log('Gravação concluída!');
+  await recorder.stop();
 
   await browser.close();
 

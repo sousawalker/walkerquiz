@@ -9,8 +9,8 @@ interface Option {
 export const QuizQuestion = () => {
   const [highlight, setHighlight] = useState<boolean>(false);
 
-  const options: Option[] = [{"text":"Cavalo","correct":false},{"text":"Camelo","correct":false},{"text":"Elefante","correct":false},{"text":"Cão","correct":true}];
-  const question: string = "Qual é o único animal que não possui glândulas sudoríparas?";
+  const options: Option[] = [{"text":"Girafa","correct":false},{"text":"Gato","correct":true},{"text":"Tartaruga","correct":false},{"text":"Camaleão","correct":false}];
+  const question: string = "Qual é o único animal que consegue sobreviver a uma queda de qualquer altura sem se machucar?";
 
   useEffect(() => {
     const timeout = setTimeout(() => {
