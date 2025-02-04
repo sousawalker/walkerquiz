@@ -4,6 +4,7 @@ const path = require('path');
 const ffmpeg = require('fluent-ffmpeg');
 const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
 const fs = require('fs');
+const { execSync } = require('child_process');
 
 function findChrome() {
   try {
